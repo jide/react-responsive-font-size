@@ -4,7 +4,9 @@
 		"module": "commonjs",
 		"outDir": "./dist",
 		"strict": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "sourceMap": true,
+    "declaration": true
 	},
-	"include": ["src"]
+	"include": ["src/index.ts"]
 }
