@@ -23,6 +23,6 @@
   },
   "dependencies": {
     "@juggle/resize-observer": "^3.3.0",
-    "react": ">=16.9.48"
+    "react": ">=16.8"
   }
 }
