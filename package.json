@@ -14,7 +14,7 @@
   },
   "keywords": [],
   "author": "Paul Engelmeier <allwqre@pm.me>",
-  "license": "ISC",
+  "license": "BSD-2-Clause",
   "devDependencies": {
     "@tsconfig/node14": "^1.0.0",
     "@types/node": "^15.0.0",
