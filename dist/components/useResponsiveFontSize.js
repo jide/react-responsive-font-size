@@ -27,3 +27,4 @@ var useResponsiveFontSize = function (ratio, optionsObject) {
     return react_1.useMemo(function () { return onRefChange; }, [onRefChange]);
 };
 exports.default = useResponsiveFontSize;
+//# sourceMappingURL=useResponsiveFontSize.js.map

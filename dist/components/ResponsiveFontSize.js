@@ -19,3 +19,4 @@ var ResponsiveFontSize = function (_a) {
     return (jsx_runtime_1.jsx("div", __assign({ ref: ref, style: { width: "100%", height: "100%" } }, { children: children }), void 0));
 };
 exports.default = ResponsiveFontSize;
+//# sourceMappingURL=ResponsiveFontSize.js.map
