@@ -16,13 +16,10 @@
   "author": "Paul Engelmeier <allwqre@pm.me>",
   "license": "BSD-2-Clause",
   "devDependencies": {
-    "@tsconfig/node14": "^1.0.0",
+    "@juggle/resize-observer": "^3.3.0",
     "@types/node": "^15.0.0",
     "@types/react": "^17.0.4",
+    "react": "^17.0.2",
     "typescript": "^4.2.4"
-  },
-  "dependencies": {
-    "@juggle/resize-observer": "^3.3.0",
-    "react": ">=16.8"
   }
 }
