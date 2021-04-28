@@ -1,7 +1,4 @@
-import { VFC, ReactNode } from "react";
+import { FC } from "react";
 import { IuseResponsiveFontSizeProps } from "./useResponsiveFontSize";
-interface IProps extends IuseResponsiveFontSizeProps {
-    children: ReactNode;
-}
-declare const ResponsiveFontSize: VFC<IProps>;
+declare const ResponsiveFontSize: FC<IuseResponsiveFontSizeProps>;
 export default ResponsiveFontSize;
