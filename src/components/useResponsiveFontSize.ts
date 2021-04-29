@@ -1,4 +1,4 @@
-import { useCallback, useState, useMemo } from "react";
+import { useState, useRef } from "react";
 import { ResizeObserver as Polyfill } from "@juggle/resize-observer";
 
 const ResizeObserver = window.ResizeObserver || Polyfill;
@@ -6,6 +6,7 @@ const ResizeObserver = window.ResizeObserver || Polyfill;
 export interface IOptionsObject {
   setFontSize?: boolean;
   globalVariableName?: string;
+  lockFontSize?: boolean;
 }
 
 export interface IuseResponsiveFontSizeProps {
@@ -14,32 +15,31 @@ export interface IuseResponsiveFontSizeProps {
 }
 
 const useResponsiveFontSize = (ratio: number, optionsObject: IOptionsObject = {}) => {
-  const [ref, setRef] = useState<HTMLElement | null>(null);
+  const { setFontSize = true, globalVariableName, lockFontSize = false } = optionsObject;
+  const ref = useRef<HTMLElement | null>(null);
+  const locked = useRef<boolean>();
 
-  const { setFontSize = true, globalVariableName } = optionsObject;
+  locked.current = lockFontSize;
 
-  const set = useCallback(() => {
-    if (!ref) return;
+  const set = () => {
+    if (!ref.current || locked.current) return;
 
-    const fontSize = ref.clientHeight * ratio;
+    const fontSize = ref.current.clientHeight * ratio;
     const fontSizePx = fontSize + "px";
 
-    if (setFontSize) ref.style.fontSize = fontSizePx;
+    if (setFontSize) ref.current.style.fontSize = fontSizePx;
     if (globalVariableName) document.documentElement.style.setProperty(globalVariableName, fontSizePx);
-  }, [ref, setFontSize, globalVariableName, ratio]);
+  };
 
-  const resizeObserver = useMemo(() => new ResizeObserver(set), [set]);
+  const resizeObserver = new ResizeObserver(set);
 
-  const onRefChange = useCallback(
-    (node) => {
-      if (!node) return;
-      setRef(node);
-      resizeObserver.observe(node);
-    },
-    [resizeObserver]
-  );
+  const onRefChange = (node: HTMLElement | null) => {
+    if (!node) return;
+    ref.current = node;
+    resizeObserver.observe(node);
+  };
 
-  return useMemo(() => onRefChange, [onRefChange]);
+  return onRefChange;
 };
 
 export default useResponsiveFontSize;

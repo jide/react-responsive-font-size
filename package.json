@@ -10,7 +10,8 @@
     "url": "git+https://github.com/engelmeierpaul/react-responsive-font-size.git"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "watch": "tsc --watch"
   },
   "keywords": [],
   "author": "Paul Engelmeier <allwqre@pm.me>",
