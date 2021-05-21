@@ -23,7 +23,7 @@
   },
   "peerDependencies": {
     "react": "^17.0.2"
-  }
+  },
   "dependencies": {
     "@juggle/resize-observer": "^3.3.0"
   }
