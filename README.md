@@ -41,7 +41,7 @@ function MyComponent() {
 
   return (
     <div style={{height: 400px}}>
-      <div ref={myRef} >
+      <div ref={myRef}>
         The font-size is now set to 50% the height of the parent element (200px)
       </ResponsiveFontSize>
     </div>
@@ -50,8 +50,9 @@ function MyComponent() {
 ```
 
 ### Options
-You have a few options for adjusting the behavior of you font-size.\
-`ratio`: A number value between 0 and 1. This value is multiplied by the height of the parent container which is then set as the new font-size.
+You have a few options for adjusting the behavior of you font-size.
+
+- `ratio`: A number value between 0 and 1. This value is multiplied by the height of the parent container which is then set as the new font-size.
 
 - `optionsObject`: Optional settings for modifying the behavior. 
   - `setFontSize`: *Boolean*. Actually set the font-size for child elements. Default: `true` 
