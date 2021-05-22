@@ -9,11 +9,21 @@
     "type": "git",
     "url": "git+https://github.com/engelmeierpaul/react-responsive-font-size.git"
   },
+  "bugs": {
+    "url": "https://github.com/engelmeierpaul/react-responsive-font-size/issues"
+  },
+  "homepage": "https://github.com/engelmeierpaul/react-responsive-font-size",
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch"
   },
-  "keywords": [],
+  "keywords": [
+    "reactjs",
+    "react",
+    "font",
+    "font-size",
+    "responsive"
+  ],
   "author": "Paul Engelmeier <allwqre@pm.me>",
   "license": "BSD-2-Clause",
   "devDependencies": {
