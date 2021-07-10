@@ -43,7 +43,7 @@ function MyComponent() {
     <div style={{height: 400px}}>
       <div ref={myRef}>
         The font-size is now set to 50% the height of the parent element (200px)
-      </ResponsiveFontSize>
+      </div>
     </div>
   )
 }
