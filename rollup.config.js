@@ -21,5 +21,12 @@ export default {
       sourcemap: true,
     },
   ],
-  plugins: [peerDepsExternal(), resolve(), commonjs(), babel({ babelHelpers: "bundled" }), typescript(), terser()],
+  plugins: [
+    peerDepsExternal(),
+    resolve(),
+    commonjs(),
+    babel({ babelHelpers: "bundled" }),
+    typescript({ tsconfig: "./tsconfig.json" }),
+    terser(),
+  ],
 };
