@@ -1,6 +1,4 @@
-import useResponsiveFontSize from "./components/useResponsiveFontSize";
-import ResponsiveFontSize from "./components/ResponsiveFontSize";
+import useResponsiveFontSize from "./useResponsiveFontSize";
+import ResponsiveFontSize from "./ResponsiveFontSize";
 
 export { useResponsiveFontSize, ResponsiveFontSize };
-
-export default ResponsiveFontSize;

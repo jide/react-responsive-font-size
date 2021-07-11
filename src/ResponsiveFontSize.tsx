@@ -1,3 +1,4 @@
+import React from "react";
 import { FC } from "react";
 import useResponsiveFontSize, { IuseResponsiveFontSizeProps } from "./useResponsiveFontSize";
 

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { ResizeObserver as Polyfill } from "@juggle/resize-observer";
 
 const ResizeObserver = window.ResizeObserver || Polyfill;

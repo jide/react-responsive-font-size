@@ -18,7 +18,7 @@ This package contains two methods for setting your font-size according to the pa
 ### Provider
 The easiest and prefered way is to use `ResponsiveFontSize` as a **provider**.
 ```JavaScript
-import ResponsiveFontSize from 'react-responsive-font-size'
+import { ResponsiveFontSize } from 'react-responsive-font-size'
 
 function MyComponent() {
   return (
