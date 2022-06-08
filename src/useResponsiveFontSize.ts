@@ -1,45 +1,39 @@
-import { useRef } from "react";
-import { ResizeObserver as Polyfill } from "@juggle/resize-observer";
+import { MutableRefObject, useRef } from "react";
 
-const ResizeObserver = window.ResizeObserver || Polyfill;
-
-export interface IOptionsObject {
+export interface OptionsObject {
   setFontSize?: boolean;
   globalVariableName?: string;
   lockFontSize?: boolean;
 }
 
-export interface IuseResponsiveFontSizeProps {
-  ratio: number;
-  optionsObject?: IOptionsObject;
-}
+const action = (node: HTMLElement, ratio: number, optionsObject?: OptionsObject, overrideLock?: true) => {
+  const { lockFontSize = false, setFontSize = true, globalVariableName } = optionsObject;
 
-const useResponsiveFontSize = (ratio: number, optionsObject: IOptionsObject = {}) => {
-  const { setFontSize = true, globalVariableName, lockFontSize = false } = optionsObject;
-  const ref = useRef<HTMLElement | null>(null);
-  const locked = useRef<boolean>();
+  if (!node) return;
+  if (lockFontSize && !overrideLock) return;
 
-  locked.current = lockFontSize;
+  const fontSize = node.clientHeight * ratio;
+  const fontSizePx = fontSize + "px";
 
-  const set = () => {
-    if (!ref.current || locked.current) return;
+  if (setFontSize) node.style.fontSize = fontSizePx;
+  if (globalVariableName) document.documentElement.style.setProperty(globalVariableName, fontSizePx);
+};
 
-    const fontSize = ref.current.clientHeight * ratio;
-    const fontSizePx = fontSize + "px";
+type UseResponsiveFontSizeReturn = (node: HTMLElement) => MutableRefObject<HTMLElement>;
 
-    if (setFontSize) ref.current.style.fontSize = fontSizePx;
-    if (globalVariableName) document.documentElement.style.setProperty(globalVariableName, fontSizePx);
-  };
+type UseResponsiveFontSize = (ratio: number, optionsObject?: OptionsObject) => UseResponsiveFontSizeReturn;
 
-  const resizeObserver = new ResizeObserver(set);
+const useResponsiveFontSize: UseResponsiveFontSize = (ratio, optionsObject = {}) => {
+  const ref = useRef<HTMLElement>();
+  const resizeObserver = new ResizeObserver(() => action(ref.current, ratio, optionsObject));
 
-  const onRefChange = (node: HTMLElement | null) => {
-    if (!node) return;
+  return (node: HTMLElement) => {
+    if (node) action(ref.current, ratio, optionsObject, true);
+    if (ref.current) resizeObserver.unobserve(ref.current);
+    if (node) resizeObserver.observe(node);
     ref.current = node;
-    resizeObserver.observe(node);
+    return ref;
   };
-
-  return onRefChange;
 };
 
 export default useResponsiveFontSize;
