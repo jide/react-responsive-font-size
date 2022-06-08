@@ -1,5 +1,3 @@
-import { MutableRefObject, useRef } from "react";
-
 export interface OptionsObject {
   setFontSize?: boolean;
   globalVariableName?: string;
@@ -19,21 +17,17 @@ const action = (node: HTMLElement, ratio: number, optionsObject?: OptionsObject,
   if (globalVariableName) document.documentElement.style.setProperty(globalVariableName, fontSizePx);
 };
 
-type UseResponsiveFontSizeReturn = (node: HTMLElement) => MutableRefObject<HTMLElement>;
+type UseResponsiveFontSizeReturn = (node: HTMLElement) => HTMLElement;
 
 type UseResponsiveFontSize = (ratio: number, optionsObject?: OptionsObject) => UseResponsiveFontSizeReturn;
 
-const useResponsiveFontSize: UseResponsiveFontSize = (ratio, optionsObject = {}) => {
-  const ref = useRef<HTMLElement>();
-  const resizeObserver = new ResizeObserver(() => action(ref.current, ratio, optionsObject));
-
-  return (node: HTMLElement) => {
-    if (node) action(ref.current, ratio, optionsObject, true);
-    if (ref.current) resizeObserver.unobserve(ref.current);
-    if (node) resizeObserver.observe(node);
-    ref.current = node;
-    return ref;
+const useResponsiveFontSize: UseResponsiveFontSize =
+  (ratio, optionsObject = {}) =>
+  (node: HTMLElement) => {
+    if (!node) return;
+    action(node, ratio, optionsObject, true);
+    new ResizeObserver(() => action(node, ratio, optionsObject)).observe(node);
+    return node;
   };
-};
 
 export default useResponsiveFontSize;
