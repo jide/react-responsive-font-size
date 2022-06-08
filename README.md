@@ -56,7 +56,7 @@ You have a few options for adjusting the behavior of you font-size.
 
 - `optionsObject`: Optional settings for modifying the behavior. 
   - `setFontSize`: *Boolean*. Actually set the font-size for child elements. Default: `true` 
-  - `globalVariableNam`: *String*. Set a global css variable with the name you gave it. Default: `null` 
+  - `globalVariableName`: *String*. Set a global css variable with the name you gave it. Default: `null` 
   - `lockFontSize`: *Boolean*. Lock the current font-size. Disables responive behavior. Default: `false`
 
 
