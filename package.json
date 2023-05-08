@@ -27,7 +27,7 @@
     "font-size",
     "responsive"
   ],
-  "author": "Paul Engelmeier <allwqre@pm.me>",
+  "author": "allwqre <github@mail.allwqre.dev>",
   "license": "BSD-2-Clause",
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.0",
