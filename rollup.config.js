@@ -1,9 +1,9 @@
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import typescript from "@rollup/plugin-typescript";
+const peerDepsExternal = require("rollup-plugin-peer-deps-external");
+const typescript = require("@rollup/plugin-typescript");
 
 const pkg = require("./package.json");
 
-export default {
+module.exports = {
   input: "src/index.ts",
   output: [
     {
