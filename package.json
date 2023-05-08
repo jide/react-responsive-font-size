@@ -1,5 +1,5 @@
 {
-  "name": "react-responsive-font-size",
+  "name": "@allwqre/react-responsive-font-size",
   "version": "1.2.0",
   "description": "Set your font-size according to the parent element height.",
   "main": "dist/index.js",

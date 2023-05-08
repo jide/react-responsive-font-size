@@ -2,18 +2,22 @@
 
 Set the font-size responsively according to the parent element height.
 
-## Get the package
+## Attention!!!
+
+Somehow I lost access to the `react-responsive-font-size` package on npmjs. I'm not sure whether it was my own stupidity or someone malicious (or both), but please don't use that package anymore. At least not when you're expecting the functionality of this package. The new package name is `@allwqre/react-responsive-font-size`.
+
+## Installation
 
 **npm**
 
 ```
-npm install react-responsive-font-size
+npm install @allwqre/react-responsive-font-size
 ```
 
 **yarn**
 
 ```
-yarn add react-responsive-font-size
+yarn add @allwqre/react-responsive-font-size
 ```
 
 ## Usage
@@ -25,7 +29,7 @@ This package contains two methods for setting your font-size according to the pa
 The easiest and prefered way is to use `ResponsiveFontSize` as a **provider**.
 
 ```JavaScript
-import { ResponsiveFontSize } from 'react-responsive-font-size'
+import { ResponsiveFontSize } from '@allwqre/react-responsive-font-size'
 
 function MyComponent() {
   return (
