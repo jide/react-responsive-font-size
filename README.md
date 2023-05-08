@@ -47,7 +47,7 @@ function MyComponent() {
 The second way is to use the **hook**, which is used by the provider as well.
 
 ```JavaScript
-import { useResponsiveFontSize } from 'react-responsive-font-size'
+import { useResponsiveFontSize } from '@allwqre/react-responsive-font-size'
 
 function MyComponent() {
   const myRef = useResponsiveFontSize(0.5, { setFontSize: true, globalVariableName: '--my-variable', lockFontSize: false })
