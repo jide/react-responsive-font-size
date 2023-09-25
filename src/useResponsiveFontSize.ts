@@ -2,6 +2,8 @@ export interface OptionsObject {
   setFontSize?: boolean;
   globalVariableName?: string;
   lockFontSize?: boolean;
+  minSize?: number;
+  maxSize?: number;
 }
 
 const action = (node: HTMLElement, ratio: number, optionsObject?: OptionsObject, overrideLock?: true) => {
@@ -10,7 +12,7 @@ const action = (node: HTMLElement, ratio: number, optionsObject?: OptionsObject,
   if (!node) return;
   if (lockFontSize && !overrideLock) return;
 
-  const fontSize = node.clientHeight * ratio;
+  const fontSize = Math.max(optionsObject.minSize, Math.min(optionsObject.maxSize, node.clientHeight * ratio));
   const fontSizePx = fontSize + "px";
 
   if (setFontSize) node.style.fontSize = fontSizePx;
